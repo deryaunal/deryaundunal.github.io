@@ -327,7 +327,24 @@
 </div>
 
 <script>
-/* ══════════════════════════════════════════════════
+<script>
+/* ==========================================
+   SADECE BU BÖLÜMÜ DÜZENLE
+   ========================================== */
+
+// 🔑 Şifre - derya1994 olarak güncelledik
+const SIFRE = "derya1994";
+
+// Giriş fonksiyonu (İsim butonla aynı olmalı)
+function checkPw() {
+    const input = document.querySelector('.password-input').value;
+    if (input === SIFRE) {
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+    } else {
+        alert("Şifre yanlış, tekrar dene bir tanem! ❤️");
+    }
+}/* ══════════════════════════════════════════════════
    ⚙️  SADECE BU BÖLÜMÜ DÜZENLE
 ══════════════════════════════════════════════════ */
 
@@ -361,22 +378,17 @@ const events = [
     ]
   },
   // ✂️ Yeni özel gün eklemek için buraya kopyala:
-  // {
-emoji:"💍💐👰🏻‍♀️🤵🏻",
-title:"düğün günümüz",
-date:"2025-09-09",
- photos: [
-{ name:"düğün", src:foto4.jpg }]
-
-  //   emoji: "🎂",
-  //   title: "Birlite İlk Doğum Günü ",
-  //   date: "2025-05-24",
-  //   photos: [
-  //     { name: "24 Mayıs, src:foto5.jpg" },
-
-  //   ]
-  // },
-];
+  ]
+    }, // Virgül burada çok önemli, bir önceki olayı kapatır
+    {
+        emoji: "💍👰‍♀️🤵‍♂️",
+        title: "Düğün Günümüz",
+        date: "2025-09-09",
+        photos: [
+            { name: "Düğün", src: "foto4.jpg" }
+        ]
+    }
+]; // Liste burada bitiyor
 
 // 🌸 Derya'nın favorileri
 const favorites = [
@@ -578,4 +590,5 @@ function spawnHearts() {
 </script>
 </body>
 </html>
+
 
