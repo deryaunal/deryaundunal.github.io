@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -102,13 +103,6 @@
     }
     header h1 em { font-style:italic;color:var(--rose); }
     .header-sub { margin-top:1.2rem;font-size:0.88rem;color:var(--text-light);letter-spacing:0.1em; }
-    .ornament {
-      display:flex;align-items:center;justify-content:center;
-      gap:0.8rem;margin-top:2rem;color:var(--rose-light);font-size:0.85rem;
-    }
-    .ornament::before,.ornament::after {
-      content:'';display:block;width:50px;height:1px;background:var(--rose-light);
-    }
 
     /* NAV */
     nav {
@@ -126,17 +120,10 @@
 
     /* SECTION LABEL */
     .section-label { text-align:center;padding:3.5rem 1rem 0.5rem; }
-    .section-label .tag {
-      display:inline-block;font-size:0.72rem;letter-spacing:0.2em;
-      text-transform:uppercase;color:var(--rose);
-      border:1px solid var(--rose-light);padding:0.25rem 0.9rem;
-      border-radius:20px;margin-bottom:0.8rem;
-    }
     .section-label h2 {
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;color:var(--text);
     }
-    .section-label p { font-size:0.88rem;color:var(--text-light);margin-top:0.5rem;font-style:italic; }
 
     /* CARDS */
     .cards-grid {
@@ -148,22 +135,12 @@
       box-shadow:0 2px 20px rgba(180,100,90,0.07);cursor:pointer;
       transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),box-shadow 0.28s;
       border:1px solid rgba(196,123,114,0.13);text-align:center;
-      position:relative;overflow:hidden;
     }
-    .event-card::before {
-      content:'';position:absolute;top:0;left:0;right:0;height:3px;
-      background:linear-gradient(90deg,var(--blush),var(--rose-light),var(--blush));
-    }
-    .event-card:hover { transform:translateY(-6px) scale(1.01);box-shadow:0 10px 36px rgba(180,100,90,0.13); }
+    .event-card:hover { transform:translateY(-6px); }
     .event-card .ev-emoji { font-size:2.5rem;margin-bottom:0.7rem; }
-    .event-card h3 {
-      font-family:'Cormorant Garamond',serif;font-size:1.35rem;
-      font-weight:400;color:var(--text);margin-bottom:0.3rem;
-    }
-    .event-card .ev-date { font-size:0.75rem;color:var(--text-light);letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase; }
+    .event-card h3 { font-family:'Cormorant Garamond',serif;font-size:1.35rem; }
+    .event-card .ev-date { font-size:0.75rem;color:var(--text-light);text-transform:uppercase; margin: 5px 0;}
     .event-card .day-num { font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--rose);font-style:italic;line-height:1; }
-    .event-card .day-lbl { font-size:0.68rem;color:var(--text-light);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.8rem; }
-    .event-card .ev-note { font-size:0.82rem;color:var(--text-light);font-style:italic;line-height:1.5; }
 
     /* FAVORİLER */
     .fav-grid {
@@ -172,15 +149,10 @@
     }
     .fav-card {
       background:var(--white);border-radius:16px;padding:1.6rem 1.3rem;
-      box-shadow:0 2px 16px rgba(180,100,90,0.06);
-      border:1px solid rgba(196,123,114,0.1);
-      transition:transform 0.25s,box-shadow 0.25s;
+      box-shadow:0 2px 16px rgba(180,100,90,0.06);text-align:center;
     }
-    .fav-card:hover { transform:translateY(-3px);box-shadow:0 6px 24px rgba(180,100,90,0.11); }
     .fav-icon { font-size:2rem;margin-bottom:0.7rem;display:block; }
-    .fav-label { font-size:0.68rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--rose);margin-bottom:0.4rem;display:block; }
-    .fav-card h4 { font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--text);margin-bottom:0.4rem; }
-    .fav-card p { font-size:0.82rem;color:var(--text-light);line-height:1.6; }
+    .fav-label { font-size:0.68rem;text-transform:uppercase;color:var(--rose); }
 
     /* MODAL */
     .modal-overlay {
@@ -193,68 +165,23 @@
     .modal {
       background:var(--cream);border-radius:22px;max-width:660px;width:100%;
       padding:2.5rem 2rem;position:relative;margin:auto;
-      animation:modalIn 0.35s cubic-bezier(.34,1.56,.64,1);
-    }
-    @keyframes modalIn {
-      from{opacity:0;transform:scale(0.92) translateY(20px);}
-      to{opacity:1;transform:scale(1) translateY(0);}
     }
     .modal-close {
-      position:absolute;top:1.3rem;right:1.5rem;
-      background:var(--blush);border:none;width:32px;height:32px;
-      border-radius:50%;font-size:1rem;cursor:pointer;color:var(--text-light);
-      display:flex;align-items:center;justify-content:center;transition:background 0.2s;
+      position:absolute;top:1rem;right:1.5rem;border:none;background:none;font-size:1.5rem;cursor:pointer;
     }
-    .modal-close:hover { background:var(--blush2); }
     .modal-top { text-align:center;margin-bottom:1.5rem; }
-    .modal-top .m-emoji { font-size:3.2rem; }
-    .modal-top h2 { font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin:0.4rem 0 0.2rem; }
-    .modal-top .m-date { font-size:0.78rem;color:var(--text-light);letter-spacing:0.12em;text-transform:uppercase; }
     .counter-block {
-      background:linear-gradient(135deg,var(--blush) 0%,var(--blush2) 100%);
-      border-radius:14px;padding:1.2rem;text-align:center;
-      margin-bottom:1.5rem;display:flex;justify-content:center;
+      background:var(--blush);border-radius:14px;padding:1.2rem;
+      margin-bottom:1.5rem;display:flex;justify-content:center;gap:20px;
     }
-    .counter-item { flex:1; }
-    .c-num { font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;color:var(--rose);line-height:1; }
-    .c-lbl { font-size:0.65rem;color:var(--text-light);letter-spacing:0.12em;text-transform:uppercase; }
-    .counter-divider { width:1px;background:rgba(196,123,114,0.25);margin:0.3rem 0.5rem; }
-    .modal-section { margin-bottom:1.4rem; }
-    .ms-title {
-      font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;
-      color:var(--rose);margin-bottom:0.6rem;
-      display:flex;align-items:center;gap:0.5rem;
-    }
-    .ms-title::after { content:'';flex:1;height:1px;background:var(--blush2); }
-    .modal-section p { font-size:0.92rem;line-height:1.8;color:var(--text);font-style:italic; }
-    .photo-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem; }
-    .photo-slot {
-      aspect-ratio:1;border-radius:10px;background:var(--blush);
-      border:2px dashed rgba(196,123,114,0.3);
-      display:flex;flex-direction:column;align-items:center;
-      justify-content:center;gap:0.3rem;padding:0.5rem;overflow:hidden;
-    }
-    .slot-placeholder { font-size:1.5rem; }
-    .slot-name { font-size:0.68rem;color:var(--text-light);text-align:center;line-height:1.3; }
+    .c-num { font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--rose); }
+    .photo-grid { display:grid;grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));gap:15px; margin-top:15px; }
+    .photo-item img { width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); object-fit: cover; aspect-ratio: 1/1;}
+    .slot-name { font-size:0.75rem; text-align:center; display:block; margin-top:5px;}
 
     /* FOOTER */
-    footer {
-      text-align:center;padding:3rem 1rem;
-      background:linear-gradient(0deg,var(--blush) 0%,transparent 100%);
-    }
-    .ft-quote {
-      font-family:'Cormorant Garamond',serif;font-style:italic;
-      font-size:1.2rem;color:var(--text-light);
-      max-width:420px;margin:0 auto 0.8rem;line-height:1.6;
-    }
-    .ft-names { font-size:0.8rem;color:var(--rose);letter-spacing:0.15em;text-transform:uppercase; }
-
-    @media(max-width:520px) {
-      .cards-grid { grid-template-columns:1fr; }
-      .modal { padding:2rem 1.2rem; }
-      .c-num { font-size:2.2rem; }
-      .photo-grid { grid-template-columns:repeat(2,1fr); }
-    }
+    footer { text-align:center;padding:3rem 1rem; }
+    .ft-names { font-size:0.8rem;color:var(--rose);text-transform:uppercase; }
   </style>
 </head>
 <body>
@@ -263,65 +190,49 @@
 
 <div id="lock-screen">
   <div class="lock-petal">🌸</div>
-  <p class="header-tag">sadece ikimiz için</p>
   <h1>Bizim <em>Hikayemiz</em></h1>
   <p class="lock-sub">şifreni gir</p>
   <div class="lock-input-wrap">
-    <input type="password" id="pw-input" placeholder="••••••" autocomplete="off" />
-    <span id="lock-error">Yanlış şifre, tekrar dene 🌸</span>
+    <input type="password" id="pw-input" placeholder="••••••" />
+    <span id="lock-error">Yanlış şifre! 🌸</span>
     <button id="lock-btn" onclick="checkPw()">Gir ♡</button>
   </div>
 </div>
 
 <div id="main-content">
   <header>
-    <p class="header-tag">sadece ikimiz için ♡</p>
     <h1>Bizim <em>Hikayemiz</em></h1>
     <p class="header-sub">her anımız burada saklı</p>
-    <div class="ornament">♡</div>
   </header>
 
   <nav>
     <a href="#events">Özel Günler</a>
-    <a href="#favorites">Derya'nın Favorileri</a>
+    <a href="#favorites">Favoriler</a>
   </nav>
 
   <section id="events">
-    <div class="section-label">
-      <span class="tag">Anılarımız</span>
-      <h2>Özel Günlerimiz</h2>
-      <p>her tıklamada bir anıya dön</p>
-    </div>
+    <div class="section-label"><h2>Özel Günlerimiz</h2></div>
     <div class="cards-grid" id="cards-grid"></div>
   </section>
 
   <section id="favorites">
-    <div class="section-label">
-      <span class="tag">Derya'yı Tanımak</span>
-      <h2>En Sevdikleri</h2>
-      <p>senin dünyandan küçük kesitler</p>
-    </div>
+    <div class="section-label"><h2>Derya'nın Favorileri</h2></div>
     <div class="fav-grid" id="fav-grid"></div>
   </section>
 
   <footer>
-    <p class="ft-quote">"Seninle geçen her gün, hayatımın en güzel sayfası."</p>
-    <p class="ft-names">✦ &nbsp; Derya &amp; Ünal &nbsp; ✦</p>
+    <p class="ft-names">✦ Derya &amp; Ünal ✦</p>
   </footer>
 </div>
 
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
-  <div class="modal" id="modal">
+  <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div id="modal-body"></div>
   </div>
 </div>
 
 <script>
-/* ══════════════════════════════════════════════════
-   ⚙️ SADECE BU BÖLÜMÜ DÜZENLE
-══════════════════════════════════════════════════ */
-
 const SIFRE = "derya1994";
 
 const events = [
@@ -347,109 +258,46 @@ const events = [
     date: "2025-06-25",
     memory: "Geleceğe bir adım daha...",
     photos: [
-      { name: "Yüzük anı 💍", src: "foto2.jpg" },
-      { name: "Aile fotoğrafı", src: "foto3.jpg" }
+      { name: "Yüzük anı", src: "foto2.jpg" },
+      { name: "Ailemiz", src: "foto3.jpg" }
     ]
   },
   {
-    emoji: "💍👰‍♀️🤵‍♂️",
+    emoji: "👰‍♀️🤵‍♂️",
     title: "Düğün Günümüz",
     date: "2025-09-09",
     memory: "Sonsuza kadar beraber.",
     photos: [
-      { name: "Düğün", src: "foto4.jpg" }
+      { name: "Mutlu gün", src: "foto4.jpg" }
     ]
   }
 ];
 
 const favorites = [
-  {
-    icon: "🍝",
-    label: "En Sevdiği Yemek",
-    title: "Kırmızı Biber Dolması, Humus, Adana Kebap",
-    desc: ""
-  },
-  {
-    icon: "🎨",
-    label: "En Sevdiği Renkler",
-    title: "Beyaz & Mavi",
-    desc: ""
-  },
-  {
-    icon: "🎵",
-    label: "En Sevdiği Müzik",
-    title: "Pop",
-    desc: ""
-  },
-  {
-    icon: "☕",
-    label: "İçecek Tercihi",
-    title: "Türk Kahvesi",
-    desc: ""
-  },
-  {
-    icon: "🌸",
-    label: "En Sevdiği Çiçek",
-    title: "Yasemin & Begonvil",
-    desc: ""
-  },
-  {
-    icon: "🔢",
-    label: "Favori Sayısı",
-    title: "5",
-    desc: ""
-  },
-  {
-    icon: "👠",
-    label: "Ayakkabı Numarası",
-    title: "36.5",
-    desc: ""
-  }
+  { icon: "🍝", label: "Yemek", title: "Humus & Adana Kebap" },
+  { icon: "🎨", label: "Renk", title: "Beyaz & Mavi" },
+  { icon: "🎵", label: "Müzik", title: "Pop" },
+  { icon: "☕", label: "İçecek", title: "Türk Kahvesi" },
+  { icon: "🌸", label: "Çiçek", title: "Begonvil" }
 ];
 
-/* ══════════════════════════════════════════════════
-   BURADAN AŞAĞI DEĞİŞTİRMEYE GEREK YOK
-══════════════════════════════════════════════════ */
-
-document.getElementById('pw-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') checkPw();
-});
-
 function checkPw() {
-  if (document.getElementById('pw-input').value === SIFRE) {
+  const val = document.getElementById('pw-input').value;
+  if (val === SIFRE) {
     document.getElementById('lock-screen').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
     buildCards();
     buildFavorites();
     spawnHearts();
   } else {
-    const err = document.getElementById('lock-error');
-    err.style.display = 'block';
-    err.style.animation = 'none';
-    void err.offsetWidth;
-    err.style.animation = '';
+    document.getElementById('lock-error').style.display = 'block';
   }
 }
 
 function daysSince(dateStr) {
-  const past = new Date(dateStr + 'T00:00:00');
-  const now = new Date(); now.setHours(0,0,0,0);
+  const past = new Date(dateStr);
+  const now = new Date();
   return Math.floor((now - past) / 86400000);
-}
-
-function formatDate(dateStr) {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('tr-TR', {
-    day: 'numeric', month: 'long', year: 'numeric'
-  });
-}
-
-function toYM(days) {
-  const y = Math.floor(days / 365);
-  const m = Math.floor((days % 365) / 30);
-  if (y > 0 && m > 0) return y + ' yıl ' + m + ' ay';
-  if (y > 0) return y + ' yıl';
-  if (m > 0) return m + ' ay';
-  return days + ' gün';
 }
 
 function buildCards() {
@@ -461,9 +309,9 @@ function buildCards() {
     card.innerHTML = `
       <div class="ev-emoji">${ev.emoji}</div>
       <h3>${ev.title}</h3>
-      <p class="ev-date">${formatDate(ev.date)}</p>
+      <p class="ev-date">${ev.date}</p>
       <div class="day-num">${days}</div>
-      <p class="day-lbl">gündür birlikte ♡</p>
+      <p>gün</p>
     `;
     card.addEventListener('click', () => openModal(i));
     grid.appendChild(card);
@@ -475,11 +323,7 @@ function buildFavorites() {
   favorites.forEach(fav => {
     const card = document.createElement('div');
     card.className = 'fav-card';
-    card.innerHTML = `
-      <span class="fav-icon">${fav.icon}</span>
-      <span class="fav-label">${fav.label}</span>
-      <h4>${fav.title}</h4>
-    `;
+    card.innerHTML = <span class="fav-icon">${fav.icon}</span><span class="fav-label">${fav.label}</span><h4>${fav.title}</h4>;
     grid.appendChild(card);
   });
 }
@@ -487,61 +331,43 @@ function buildFavorites() {
 function openModal(index) {
   const ev = events[index];
   const days = daysSince(ev.date);
+  
+  // FOTOĞRAFLARI GÖSTEREN KISIM BURASI
   const photosHTML = ev.photos.map(p => `
-    <div class="photo-slot">
-      <span class="slot-placeholder">🖼️</span>
+    <div class="photo-item">
+      <img src="${p.src}" alt="${p.name}">
       <span class="slot-name">${p.name}</span>
     </div>
   `).join('');
 
   document.getElementById('modal-body').innerHTML = `
     <div class="modal-top">
-      <div class="m-emoji">${ev.emoji}</div>
       <h2>${ev.title}</h2>
-      <p class="m-date">${formatDate(ev.date)}</p>
+      <p>${ev.date}</p>
     </div>
     <div class="counter-block">
-      <div class="counter-item">
-        <div class="c-num">${days}</div>
-        <div class="c-lbl">Gün</div>
-      </div>
-      <div class="counter-divider"></div>
-      <div class="counter-item">
-        <div class="c-num">${toYM(days)}</div>
-        <div class="c-lbl">Birlikte</div>
-      </div>
+      <div><div class="c-num">${days}</div><p>Gün</p></div>
     </div>
-    <div class="modal-section">
-      <div class="ms-title">🤍 Anı</div>
-      <p>${ev.memory}</p>
+    <div style="margin-bottom:20px;">
+      <p><i>${ev.memory}</i></p>
     </div>
-    <div class="modal-section">
-      <div class="ms-title">📷 Fotoğraflar</div>
-      <div class="photo-grid">${photosHTML}</div>
-    </div>
+    <div class="photo-grid">${photosHTML}</div>
   `;
   document.getElementById('modal-overlay').classList.add('open');
 }
 
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-}
-
-function closeModalOutside(e) {
-  if (e.target.id === 'modal-overlay') closeModal();
-}
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); }
+function closeModalOutside(e) { if (e.target.id === 'modal-overlay') closeModal(); }
 
 function spawnHearts() {
   const container = document.getElementById('hearts-bg');
-  const syms = ['♡','♡','♡','·','✦'];
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 15; i++) {
     const h = document.createElement('div');
     h.className = 'heart-float';
-    h.textContent = syms[Math.floor(Math.random() * syms.length)];
-    h.style.left = (Math.random() * 96) + 'vw';
-    h.style.fontSize = (0.6 + Math.random() * 0.9) + 'rem';
-    h.style.animationDuration = (14 + Math.random() * 18) + 's';
-    h.style.animationDelay = (Math.random() * 14) + 's';
+    h.textContent = '❤';
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.animationDuration = (10 + Math.random() * 10) + 's';
+    h.style.animationDelay = Math.random() * 5 + 's';
     container.appendChild(h);
   }
 }
