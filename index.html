@@ -27,7 +27,6 @@
       font-weight:300;
     }
 
-    /* HEARTS */
     .hearts-bg { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
     .heart-float {
       position:absolute;opacity:0;
@@ -41,7 +40,6 @@
       100% { transform:translateY(-8vh) rotate(10deg);opacity:0; }
     }
 
-    /* LOCK SCREEN */
     #lock-screen {
       position:fixed;inset:0;background:var(--cream);
       display:flex;flex-direction:column;align-items:center;
@@ -78,10 +76,8 @@
       75%{transform:translateX(6px);}
     }
 
-    /* MAIN */
     #main-content { display:none;position:relative;z-index:1; }
 
-    /* HEADER */
     header {
       text-align:center;padding:5rem 1.5rem 4rem;
       background:linear-gradient(180deg,var(--blush) 0%,var(--cream) 100%);
@@ -110,7 +106,6 @@
       content:'';display:block;width:50px;height:1px;background:var(--rose-light);
     }
 
-    /* NAV */
     nav {
       display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;
       padding:1.5rem 1rem;position:sticky;top:0;
@@ -124,7 +119,6 @@
     }
     nav a:hover { background:var(--blush);color:var(--rose-dark); }
 
-    /* SECTION LABEL */
     .section-label { text-align:center;padding:3.5rem 1rem 0.5rem; }
     .section-label .tag {
       display:inline-block;font-size:0.72rem;letter-spacing:0.2em;
@@ -138,7 +132,6 @@
     }
     .section-label p { font-size:0.88rem;color:var(--text-light);margin-top:0.5rem;font-style:italic; }
 
-    /* CARDS */
     .cards-grid {
       display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
       gap:1.2rem;max-width:920px;margin:2rem auto;padding:0 1.5rem 1rem;
@@ -163,9 +156,7 @@
     .event-card .ev-date { font-size:0.75rem;color:var(--text-light);letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase; }
     .event-card .day-num { font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--rose);font-style:italic;line-height:1; }
     .event-card .day-lbl { font-size:0.68rem;color:var(--text-light);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.8rem; }
-    .event-card .ev-note { font-size:0.82rem;color:var(--text-light);font-style:italic;line-height:1.5; }
 
-    /* FAVORİLER */
     .fav-grid {
       display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
       gap:1rem;max-width:900px;margin:2rem auto;padding:0 1.5rem 1rem;
@@ -180,7 +171,40 @@
     .fav-icon { font-size:2rem;margin-bottom:0.7rem;display:block; }
     .fav-label { font-size:0.68rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--rose);margin-bottom:0.4rem;display:block; }
     .fav-card h4 { font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--text);margin-bottom:0.4rem; }
-    .fav-card p { font-size:0.82rem;color:var(--text-light);line-height:1.6; }
+
+    /* COUNTDOWN */
+    #countdown { padding-bottom:2rem; }
+    .countdown-grid {
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:1.2rem;max-width:960px;margin:2rem auto;padding:0 1.5rem 1rem;
+    }
+    .cd-card {
+      background:var(--white);border-radius:18px;padding:1.8rem 1.4rem 1.5rem;
+      box-shadow:0 2px 20px rgba(180,100,90,0.07);
+      border:1px solid rgba(196,123,114,0.13);
+      text-align:center;position:relative;overflow:hidden;
+      transition:transform 0.25s,box-shadow 0.25s;
+    }
+    .cd-card::before {
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--blush),var(--rose-light),var(--blush));
+    }
+    .cd-card:hover { transform:translateY(-5px);box-shadow:0 10px 32px rgba(180,100,90,0.13); }
+    .cd-emoji { font-size:2.2rem;margin-bottom:0.6rem; }
+    .cd-card h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:0.25rem;
+    }
+    .cd-fixed-date { font-size:0.72rem;color:var(--text-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem; }
+    .cd-days-wrap { display:flex;align-items:baseline;justify-content:center;gap:0.4rem; }
+    .cd-num {
+      font-family:'Cormorant Garamond',serif;
+      font-size:3.2rem;font-style:italic;line-height:1;color:#7aad8a;
+    }
+    .cd-num.today { color:#e0a040; }
+    .cd-unit { font-size:0.7rem;color:var(--text-light);letter-spacing:0.12em;text-transform:uppercase; }
+    .cd-status { margin-top:0.5rem;font-size:0.78rem;font-style:italic;color:#7aad8a; }
+    .cd-status.today { color:#e0a040;font-weight:600; }
 
     /* MODAL */
     .modal-overlay {
@@ -227,17 +251,44 @@
     }
     .ms-title::after { content:'';flex:1;height:1px;background:var(--blush2); }
     .modal-section p { font-size:0.92rem;line-height:1.8;color:var(--text);font-style:italic; }
+
+    /* PHOTO GRID */
     .photo-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem; }
     .photo-slot {
       aspect-ratio:1;border-radius:10px;background:var(--blush);
-      border:2px dashed rgba(196,123,114,0.3);
+      overflow:hidden;position:relative;
+      border:2px solid rgba(196,123,114,0.18);
+    }
+    .photo-slot img {
+      width:100%;height:100%;object-fit:cover;display:block;
+      transition:transform 0.4s;cursor:zoom-in;
+    }
+    .photo-slot img:hover { transform:scale(1.06); }
+    .photo-slot.placeholder {
       display:flex;flex-direction:column;align-items:center;
-      justify-content:center;gap:0.3rem;padding:0.5rem;overflow:hidden;
+      justify-content:center;gap:0.3rem;padding:0.5rem;
     }
     .slot-placeholder { font-size:1.5rem; }
     .slot-name { font-size:0.68rem;color:var(--text-light);text-align:center;line-height:1.3; }
 
-    /* FOOTER */
+    /* LIGHTBOX */
+    #lightbox {
+      display:none;position:fixed;inset:0;z-index:900;
+      background:rgba(20,10,10,0.88);align-items:center;justify-content:center;
+      cursor:zoom-out;
+    }
+    #lightbox.open { display:flex; }
+    #lightbox img { max-width:90vw;max-height:88vh;border-radius:10px;box-shadow:0 8px 60px rgba(0,0,0,0.5); }
+    #lightbox-close {
+      position:fixed;top:1.2rem;right:1.5rem;
+      background:rgba(255,255,255,0.15);border:none;
+      color:#fff;font-size:1.4rem;cursor:pointer;
+      width:40px;height:40px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      transition:background 0.2s;
+    }
+    #lightbox-close:hover { background:rgba(255,255,255,0.28); }
+
     footer {
       text-align:center;padding:3rem 1rem;
       background:linear-gradient(0deg,var(--blush) 0%,transparent 100%);
@@ -250,7 +301,7 @@
     .ft-names { font-size:0.8rem;color:var(--rose);letter-spacing:0.15em;text-transform:uppercase; }
 
     @media(max-width:520px) {
-      .cards-grid { grid-template-columns:1fr; }
+      .cards-grid,.countdown-grid { grid-template-columns:1fr; }
       .modal { padding:2rem 1.2rem; }
       .c-num { font-size:2.2rem; }
       .photo-grid { grid-template-columns:repeat(2,1fr); }
@@ -283,6 +334,7 @@
 
   <nav>
     <a href="#events">Özel Günler</a>
+    <a href="#countdown">Geri Sayım</a>
     <a href="#favorites">Derya'nın Favorileri</a>
   </nav>
 
@@ -293,6 +345,15 @@
       <p>her tıklamada bir anıya dön</p>
     </div>
     <div class="cards-grid" id="cards-grid"></div>
+  </section>
+
+  <section id="countdown">
+    <div class="section-label">
+      <span class="tag">Takvimimiz</span>
+      <h2>Geri Sayım</h2>
+      <p>özel günlerimize ne kadar kaldı?</p>
+    </div>
+    <div class="countdown-grid" id="countdown-grid"></div>
   </section>
 
   <section id="favorites">
@@ -317,11 +378,12 @@
   </div>
 </div>
 
-<script>
-/* ══════════════════════════════════════════════════
-   ⚙️ SADECE BU BÖLÜMÜ DÜZENLE
-══════════════════════════════════════════════════ */
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
 
+<script>
 const SIFRE = "derya1994";
 
 const events = [
@@ -362,55 +424,27 @@ const events = [
   }
 ];
 
-const favorites = [
-  {
-    icon: "🍝",
-    label: "En Sevdiği Yemek",
-    title: "Kırmızı Biber Dolması, Humus, Adana Kebap",
-    desc: ""
-  },
-  {
-    icon: "🎨",
-    label: "En Sevdiği Renkler",
-    title: "Beyaz & Mavi",
-    desc: ""
-  },
-  {
-    icon: "🎵",
-    label: "En Sevdiği Müzik",
-    title: "Pop",
-    desc: ""
-  },
-  {
-    icon: "☕",
-    label: "İçecek Tercihi",
-    title: "Türk Kahvesi",
-    desc: ""
-  },
-  {
-    icon: "🌸",
-    label: "En Sevdiği Çiçek",
-    title: "Yasemin & Begonvil",
-    desc: ""
-  },
-  {
-    icon: "🔢",
-    label: "Favori Sayısı",
-    title: "5",
-    desc: ""
-  },
-  {
-    icon: "👠",
-    label: "Ayakkabı Numarası",
-    title: "36.5",
-    desc: ""
-  }
+const countdownDays = [
+  { emoji:"💌", title:"Sevgililer Günü",            month:2, day:14 },
+  { emoji:"🩺", title:"Tıp Bayramı",                month:3, day:14 },
+  { emoji:"🎂", title:"Derya'nın Doğum Günü",       month:5, day:24 },
+  { emoji:"💍", title:"Nişan Yıl Dönümü",           month:6, day:25 },
+  { emoji:"💫", title:"Konuşmaya Başladığımız Gün", month:6, day:26 },
+  { emoji:"💕", title:"Sevgililik Yıl Dönümü",     month:8, day:24 },
+  { emoji:"👰‍♀️", title:"Evlilik Yıl Dönümü",       month:9, day:9  },
 ];
 
-/* ══════════════════════════════════════════════════
-   BURADAN AŞAĞI DEĞİŞTİRMEYE GEREK YOK
-══════════════════════════════════════════════════ */
+const favorites = [
+  { icon:"🍝", label:"En Sevdiği Yemek",   title:"Kırmızı Biber Dolması, Humus, Adana Kebap" },
+  { icon:"🎨", label:"En Sevdiği Renkler", title:"Beyaz & Mavi" },
+  { icon:"🎵", label:"En Sevdiği Müzik",   title:"Pop" },
+  { icon:"☕", label:"İçecek Tercihi",     title:"Türk Kahvesi" },
+  { icon:"🌸", label:"En Sevdiği Çiçek",  title:"Yasemin & Begonvil" },
+  { icon:"🔢", label:"Favori Sayısı",      title:"5" },
+  { icon:"👠", label:"Ayakkabı Numarası",  title:"36.5" },
+];
 
+/* ── Helpers ── */
 document.getElementById('pw-input').addEventListener('keydown', e => {
   if (e.key === 'Enter') checkPw();
 });
@@ -420,6 +454,7 @@ function checkPw() {
     document.getElementById('lock-screen').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
     buildCards();
+    buildCountdown();
     buildFavorites();
     spawnHearts();
   } else {
@@ -431,27 +466,43 @@ function checkPw() {
   }
 }
 
+function todayMidnight() {
+  const d = new Date(); d.setHours(0,0,0,0); return d;
+}
+
 function daysSince(dateStr) {
   const past = new Date(dateStr + 'T00:00:00');
-  const now = new Date(); now.setHours(0,0,0,0);
-  return Math.floor((now - past) / 86400000);
+  return Math.floor((todayMidnight() - past) / 86400000);
 }
 
 function formatDate(dateStr) {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('tr-TR', {
-    day: 'numeric', month: 'long', year: 'numeric'
-  });
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString('tr-TR',
+    { day:'numeric', month:'long', year:'numeric' });
 }
 
 function toYM(days) {
-  const y = Math.floor(days / 365);
-  const m = Math.floor((days % 365) / 30);
-  if (y > 0 && m > 0) return y + ' yıl ' + m + ' ay';
-  if (y > 0) return y + ' yıl';
-  if (m > 0) return m + ' ay';
-  return days + ' gün';
+  const y = Math.floor(days/365), m = Math.floor((days%365)/30);
+  if (y>0 && m>0) return y+' yıl '+m+' ay';
+  if (y>0) return y+' yıl';
+  if (m>0) return m+' ay';
+  return days+' gün';
 }
 
+function getCountdownInfo(month, day) {
+  const now = todayMidnight();
+  let target = new Date(now.getFullYear(), month-1, day);
+  const diff = Math.round((target - now) / 86400000);
+  if (diff === 0) return { diff:0, targetDate:target, state:'today' };
+  if (diff > 0)  return { diff, targetDate:target, state:'future' };
+  target = new Date(now.getFullYear()+1, month-1, day);
+  return { diff: Math.round((target-now)/86400000), targetDate:target, state:'future' };
+}
+
+function fmtTarget(date) {
+  return date.toLocaleDateString('tr-TR', { day:'numeric', month:'long', year:'numeric' });
+}
+
+/* ── Builders ── */
 function buildCards() {
   const grid = document.getElementById('cards-grid');
   events.forEach((ev, i) => {
@@ -470,6 +521,35 @@ function buildCards() {
   });
 }
 
+function buildCountdown() {
+  const grid = document.getElementById('countdown-grid');
+  const items = countdownDays.map(cd => ({ ...cd, ...getCountdownInfo(cd.month, cd.day) }))
+    .sort((a,b) => {
+      if (a.state==='today') return -1;
+      if (b.state==='today') return 1;
+      return a.diff - b.diff;
+    });
+
+  items.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'cd-card';
+    const isToday = item.state === 'today';
+    card.innerHTML = `
+      <div class="cd-emoji">${item.emoji}</div>
+      <h3>${item.title}</h3>
+      <p class="cd-fixed-date">${fmtTarget(item.targetDate)}</p>
+      <div class="cd-days-wrap">
+        <div class="cd-num${isToday?' today':''}">${isToday ? '🎉' : item.diff}</div>
+        ${!isToday ? '<div class="cd-unit">gün</div>' : ''}
+      </div>
+      <div class="cd-status${isToday?' today':''}">
+        ${isToday ? 'Bugün! Kutlu olsun ♡' : item.diff+' gün kaldı'}
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
 function buildFavorites() {
   const grid = document.getElementById('fav-grid');
   favorites.forEach(fav => {
@@ -484,15 +564,22 @@ function buildFavorites() {
   });
 }
 
+/* ── Modal ── */
 function openModal(index) {
   const ev = events[index];
   const days = daysSince(ev.date);
-  const photosHTML = ev.photos.map(p => `
-    <div class="photo-slot">
-      <span class="slot-placeholder">🖼️</span>
-      <span class="slot-name">${p.name}</span>
-    </div>
-  `).join('');
+  const photosHTML = ev.photos.length
+    ? ev.photos.map(p => {
+        const isReal = p.src && p.src !== '' && !p.src.match(/^foto\d+\.jpg$/);
+        return isReal
+          ? `<div class="photo-slot"><img src="${p.src}" alt="${p.name}" loading="lazy"
+               onclick="openLightbox('${p.src}','${p.name}')"/></div>`
+          : `<div class="photo-slot placeholder">
+               <span class="slot-placeholder">🖼️</span>
+               <span class="slot-name">${p.name}</span>
+             </div>`;
+      }).join('')
+    : <p style="font-size:0.82rem;color:var(--text-light);font-style:italic;">Henüz fotoğraf eklenmedi.</p>;
 
   document.getElementById('modal-body').innerHTML = `
     <div class="modal-top">
@@ -523,31 +610,40 @@ function openModal(index) {
   document.getElementById('modal-overlay').classList.add('open');
 }
 
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-}
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); }
+function closeModalOutside(e) { if (e.target.id==='modal-overlay') closeModal(); }
 
-function closeModalOutside(e) {
-  if (e.target.id === 'modal-overlay') closeModal();
+/* ── Lightbox ── */
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt;
+  document.getElementById('lightbox').classList.add('open');
 }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
 
+document.addEventListener('keydown', e => {
+  if (e.key==='Escape') { closeModal(); closeLightbox(); }
+});
+
+/* ── Hearts ── */
 function spawnHearts() {
   const container = document.getElementById('hearts-bg');
   const syms = ['♡','♡','♡','·','✦'];
-  for (let i = 0; i < 12; i++) {
+  for (let i=0; i<12; i++) {
     const h = document.createElement('div');
     h.className = 'heart-float';
-    h.textContent = syms[Math.floor(Math.random() * syms.length)];
-    h.style.left = (Math.random() * 96) + 'vw';
-    h.style.fontSize = (0.6 + Math.random() * 0.9) + 'rem';
-    h.style.animationDuration = (14 + Math.random() * 18) + 's';
-    h.style.animationDelay = (Math.random() * 14) + 's';
+    h.textContent = syms[Math.floor(Math.random()*syms.length)];
+    h.style.left = (Math.random()*96)+'vw';
+    h.style.fontSize = (0.6+Math.random()*0.9)+'rem';
+    h.style.animationDuration = (14+Math.random()*18)+'s';
+    h.style.animationDelay = (Math.random()*14)+'s';
     container.appendChild(h);
   }
 }
 </script>
 </body>
 </html>
+
 
 
 
