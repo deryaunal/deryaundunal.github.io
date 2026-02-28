@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
@@ -7,208 +7,85 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Nunito:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --cream: #fdf7f2;
-      --blush: #f5e3de;
-      --blush2: #eeddd8;
-      --rose: #c47b72;
-      --rose-dark: #9e5e56;
-      --rose-light: #e8b5af;
-      --text: #3a2828;
-      --text-light: #7a5252;
-      --white: #fffcfa;
+      --cream: #fdf7f2; --blush: #f5e3de; --blush2: #eeddd8;
+      --rose: #c47b72; --rose-dark: #9e5e56; --rose-light: #e8b5af;
+      --text: #3a2828; --text-light: #7a5252; --white: #fffcfa;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body {
-      font-family:'Nunito',sans-serif;
-      background:var(--cream);
-      color:var(--text);
-      min-height:100vh;
-      font-weight:300;
-    }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--text); min-height:100vh; font-weight:300; }
 
     .hearts-bg { position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden; }
-    .heart-float {
-      position:absolute;opacity:0;
-      animation:floatUp linear infinite;
-      color:var(--rose-light);user-select:none;
-    }
+    .heart-float { position:absolute;opacity:0;animation:floatUp linear infinite;color:var(--rose-light);user-select:none; }
     @keyframes floatUp {
-      0%   { transform:translateY(105vh) rotate(-10deg);opacity:0; }
-      8%   { opacity:0.3; }
-      92%  { opacity:0.12; }
+      0% { transform:translateY(105vh) rotate(-10deg);opacity:0; }
+      8% { opacity:0.3; } 92% { opacity:0.12; }
       100% { transform:translateY(-8vh) rotate(10deg);opacity:0; }
     }
 
-    /* LOCK */
-    #lock-screen {
-      position:fixed;inset:0;background:var(--cream);
-      display:flex;flex-direction:column;align-items:center;
-      justify-content:center;z-index:1000;gap:1.2rem;padding:2rem;
-      transition:opacity 0.5s ease;
-    }
-    #lock-screen.hidden { opacity:0;pointer-events:none; }
-    .lock-petal { font-size:3rem;animation:pulse 3s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.1);} }
-    #lock-screen h1 {
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.2rem,6vw,3.5rem);font-weight:300;
-      color:var(--text);text-align:center;line-height:1.2;
-    }
-    #lock-screen h1 em { font-style:italic;color:var(--rose); }
-    .lock-sub { font-size:0.82rem;color:var(--text-light);letter-spacing:0.15em;text-transform:uppercase; }
-    .lock-input-wrap { display:flex;flex-direction:column;align-items:center;gap:0.8rem;margin-top:0.5rem; }
-    #pw-input {
-      border:none;border-bottom:1.5px solid var(--rose);background:transparent;
-      padding:0.6rem 0.5rem;font-size:1.1rem;font-family:'Nunito',sans-serif;
-      color:var(--text);outline:none;text-align:center;width:220px;letter-spacing:0.25em;
-    }
-    #pw-input::placeholder { letter-spacing:0.15em;color:var(--rose-light); }
-    #lock-btn {
-      background:var(--rose);color:white;border:none;
-      padding:0.75rem 2.2rem;font-family:'Nunito',sans-serif;
-      font-size:0.85rem;font-weight:500;letter-spacing:0.14em;
-      text-transform:uppercase;cursor:pointer;border-radius:40px;
-      transition:background 0.3s,transform 0.15s;
-    }
-    #lock-btn:hover { background:var(--rose-dark);transform:scale(1.02); }
-    #lock-error { color:#c04040;font-size:0.8rem;display:none; }
-    @keyframes shake {
-      0%,100%{transform:translateX(0);}
-      25%{transform:translateX(-6px);}
-      75%{transform:translateX(6px);}
-    }
-    .shake { animation:shake 0.4s; }
-
-    /* MAIN */
-    #main-content {
-      display:none;position:relative;z-index:1;
-      animation:fadeIn 0.6s ease;
-    }
+    #main-content { display:block;position:relative;z-index:1;animation:fadeIn 0.6s ease; }
     @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
 
-    /* HEADER */
     header {
       text-align:center;padding:5rem 1.5rem 4rem;
       background:linear-gradient(180deg,var(--blush) 0%,var(--cream) 100%);
       position:relative;overflow:hidden;
     }
-    header::after {
-      content:'';position:absolute;bottom:0;left:50%;
-      transform:translateX(-50%);width:80px;height:1px;background:var(--rose-light);
-    }
-    .header-tag {
-      font-family:'Cormorant Garamond',serif;font-style:italic;
-      font-size:1rem;color:var(--rose);letter-spacing:0.18em;margin-bottom:1rem;
-    }
-    header h1 {
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(3rem,7vw,5rem);font-weight:300;
-      color:var(--text);line-height:1.1;
-    }
+    header::after { content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:1px;background:var(--rose-light); }
+    .header-tag { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--rose);letter-spacing:0.18em;margin-bottom:1rem; }
+    header h1 { font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5rem);font-weight:300;color:var(--text);line-height:1.1; }
     header h1 em { font-style:italic;color:var(--rose); }
     .header-sub { margin-top:1.2rem;font-size:0.88rem;color:var(--text-light);letter-spacing:0.1em; }
-    .ornament {
-      display:flex;align-items:center;justify-content:center;
-      gap:0.8rem;margin-top:2rem;color:var(--rose-light);font-size:0.85rem;
-    }
-    .ornament::before,.ornament::after {
-      content:'';display:block;width:50px;height:1px;background:var(--rose-light);
-    }
+    .ornament { display:flex;align-items:center;justify-content:center;gap:0.8rem;margin-top:2rem;color:var(--rose-light);font-size:0.85rem; }
+    .ornament::before,.ornament::after { content:'';display:block;width:50px;height:1px;background:var(--rose-light); }
 
-    /* NAV */
     nav {
       display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;
       padding:1.5rem 1rem;position:sticky;top:0;
       background:rgba(253,247,242,0.92);backdrop-filter:blur(8px);
       z-index:100;border-bottom:1px solid rgba(196,123,114,0.12);
     }
-    nav a {
-      text-decoration:none;color:var(--text-light);font-size:0.8rem;
-      letter-spacing:0.1em;text-transform:uppercase;
-      padding:0.4rem 1rem;border-radius:20px;transition:background 0.2s,color 0.2s;
-    }
+    nav a { text-decoration:none;color:var(--text-light);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:20px;transition:background 0.2s,color 0.2s; }
     nav a:hover { background:var(--blush);color:var(--rose-dark); }
 
-    /* SECTION LABEL */
     .section-label { text-align:center;padding:3.5rem 1rem 0.5rem; }
-    .section-label .tag {
-      display:inline-block;font-size:0.72rem;letter-spacing:0.2em;
-      text-transform:uppercase;color:var(--rose);
-      border:1px solid var(--rose-light);padding:0.25rem 0.9rem;
-      border-radius:20px;margin-bottom:0.8rem;
-    }
-    .section-label h2 {
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;color:var(--text);
-    }
+    .section-label .tag { display:inline-block;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);border:1px solid var(--rose-light);padding:0.25rem 0.9rem;border-radius:20px;margin-bottom:0.8rem; }
+    .section-label h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;color:var(--text); }
     .section-label p { font-size:0.88rem;color:var(--text-light);margin-top:0.5rem;font-style:italic; }
 
-    /* EVENT CARDS */
-    .cards-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:1.2rem;max-width:920px;margin:2rem auto;padding:0 1.5rem 1rem;
-    }
+    .cards-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;max-width:920px;margin:2rem auto;padding:0 1.5rem 1rem; }
     .event-card {
       background:var(--white);border-radius:18px;padding:2rem 1.5rem;
       box-shadow:0 2px 20px rgba(180,100,90,0.07);cursor:pointer;
       transition:transform 0.28s cubic-bezier(.34,1.56,.64,1),box-shadow 0.28s;
-      border:1px solid rgba(196,123,114,0.13);text-align:center;
-      position:relative;overflow:hidden;
+      border:1px solid rgba(196,123,114,0.13);text-align:center;position:relative;overflow:hidden;
     }
-    .event-card::before {
-      content:'';position:absolute;top:0;left:0;right:0;height:3px;
-      background:linear-gradient(90deg,var(--blush),var(--rose-light),var(--blush));
-    }
+    .event-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blush),var(--rose-light),var(--blush)); }
     .event-card:hover { transform:translateY(-6px) scale(1.01);box-shadow:0 10px 36px rgba(180,100,90,0.13); }
     .event-card .ev-emoji { font-size:2.5rem;margin-bottom:0.7rem; }
-    .event-card h3 {
-      font-family:'Cormorant Garamond',serif;font-size:1.35rem;
-      font-weight:400;color:var(--text);margin-bottom:0.3rem;
-    }
+    .event-card h3 { font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--text);margin-bottom:0.3rem; }
     .event-card .ev-date { font-size:0.75rem;color:var(--text-light);letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase; }
     .event-card .day-num { font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--rose);font-style:italic;line-height:1; }
     .event-card .day-lbl { font-size:0.68rem;color:var(--text-light);letter-spacing:0.14em;text-transform:uppercase; }
 
-    /* FAVORİLER */
-    .fav-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-      gap:1rem;max-width:900px;margin:2rem auto;padding:0 1.5rem 1rem;
-    }
-    .fav-card {
-      background:var(--white);border-radius:16px;padding:1.6rem 1.3rem;
-      box-shadow:0 2px 16px rgba(180,100,90,0.06);
-      border:1px solid rgba(196,123,114,0.1);
-      transition:transform 0.25s,box-shadow 0.25s;
-    }
+    .fav-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;max-width:900px;margin:2rem auto;padding:0 1.5rem 1rem; }
+    .fav-card { background:var(--white);border-radius:16px;padding:1.6rem 1.3rem;box-shadow:0 2px 16px rgba(180,100,90,0.06);border:1px solid rgba(196,123,114,0.1);transition:transform 0.25s,box-shadow 0.25s; }
     .fav-card:hover { transform:translateY(-3px);box-shadow:0 6px 24px rgba(180,100,90,0.11); }
     .fav-icon { font-size:2rem;margin-bottom:0.7rem;display:block; }
     .fav-label { font-size:0.68rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--rose);margin-bottom:0.4rem;display:block; }
     .fav-card h4 { font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--text); }
 
-    /* COUNTDOWN */
     #countdown { padding-bottom:2rem; }
-    .countdown-grid {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1.2rem;max-width:960px;margin:2rem auto;padding:0 1.5rem 1rem;
-    }
+    .countdown-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;max-width:960px;margin:2rem auto;padding:0 1.5rem 1rem; }
     .cd-card {
       background:var(--white);border-radius:18px;padding:1.8rem 1.4rem 1.5rem;
-      box-shadow:0 2px 20px rgba(180,100,90,0.07);
-      border:1px solid rgba(196,123,114,0.13);
-      text-align:center;position:relative;overflow:hidden;
-      transition:transform 0.25s,box-shadow 0.25s;
+      box-shadow:0 2px 20px rgba(180,100,90,0.07);border:1px solid rgba(196,123,114,0.13);
+      text-align:center;position:relative;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s;
     }
-    .cd-card::before {
-      content:'';position:absolute;top:0;left:0;right:0;height:3px;
-      background:linear-gradient(90deg,var(--blush),var(--rose-light),var(--blush));
-    }
+    .cd-card::before { content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blush),var(--rose-light),var(--blush)); }
     .cd-card:hover { transform:translateY(-5px);box-shadow:0 10px 32px rgba(180,100,90,0.13); }
     .cd-emoji { font-size:2.2rem;margin-bottom:0.6rem; }
-    .cd-card h3 {
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:0.25rem;
-    }
+    .cd-card h3 { font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:0.25rem; }
     .cd-fixed-date { font-size:0.72rem;color:var(--text-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem; }
     .cd-days-wrap { display:flex;align-items:baseline;justify-content:center;gap:0.4rem; }
     .cd-num { font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-style:italic;line-height:1;color:#7aad8a; }
@@ -217,99 +94,42 @@
     .cd-status { margin-top:0.5rem;font-size:0.78rem;font-style:italic;color:#7aad8a; }
     .cd-status.today { color:#e0a040;font-weight:600; }
 
-    /* MODAL */
-    .modal-overlay {
-      display:none;position:fixed;inset:0;
-      background:rgba(40,25,25,0.45);backdrop-filter:blur(6px);
-      z-index:500;align-items:flex-start;justify-content:center;
-      padding:1.5rem 1rem 2rem;overflow-y:auto;
-    }
+    .modal-overlay { display:none;position:fixed;inset:0;background:rgba(40,25,25,0.45);backdrop-filter:blur(6px);z-index:500;align-items:flex-start;justify-content:center;padding:1.5rem 1rem 2rem;overflow-y:auto; }
     .modal-overlay.open { display:flex; }
-    .modal {
-      background:var(--cream);border-radius:22px;max-width:660px;width:100%;
-      padding:2.5rem 2rem;position:relative;margin:auto;
-      animation:modalIn 0.35s cubic-bezier(.34,1.56,.64,1);
-    }
-    @keyframes modalIn {
-      from{opacity:0;transform:scale(0.92) translateY(20px);}
-      to{opacity:1;transform:scale(1) translateY(0);}
-    }
-    .modal-close {
-      position:absolute;top:1.3rem;right:1.5rem;
-      background:var(--blush);border:none;width:32px;height:32px;
-      border-radius:50%;font-size:1rem;cursor:pointer;color:var(--text-light);
-      display:flex;align-items:center;justify-content:center;transition:background 0.2s;
-    }
+    .modal { background:var(--cream);border-radius:22px;max-width:660px;width:100%;padding:2.5rem 2rem;position:relative;margin:auto;animation:modalIn 0.35s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes modalIn { from{opacity:0;transform:scale(0.92) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);} }
+    .modal-close { position:absolute;top:1.3rem;right:1.5rem;background:var(--blush);border:none;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;color:var(--text-light);display:flex;align-items:center;justify-content:center;transition:background 0.2s; }
     .modal-close:hover { background:var(--blush2); }
     .modal-top { text-align:center;margin-bottom:1.5rem; }
     .modal-top .m-emoji { font-size:3.2rem; }
     .modal-top h2 { font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--text);margin:0.4rem 0 0.2rem; }
     .modal-top .m-date { font-size:0.78rem;color:var(--text-light);letter-spacing:0.12em;text-transform:uppercase; }
-    .counter-block {
-      background:linear-gradient(135deg,var(--blush) 0%,var(--blush2) 100%);
-      border-radius:14px;padding:1.2rem;text-align:center;
-      margin-bottom:1.5rem;display:flex;justify-content:center;
-    }
+    .counter-block { background:linear-gradient(135deg,var(--blush) 0%,var(--blush2) 100%);border-radius:14px;padding:1.2rem;text-align:center;margin-bottom:1.5rem;display:flex;justify-content:center; }
     .counter-item { flex:1; }
     .c-num { font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;color:var(--rose);line-height:1; }
     .c-lbl { font-size:0.65rem;color:var(--text-light);letter-spacing:0.12em;text-transform:uppercase; }
     .counter-divider { width:1px;background:rgba(196,123,114,0.25);margin:0.3rem 0.5rem; }
     .modal-section { margin-bottom:1.4rem; }
-    .ms-title {
-      font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;
-      color:var(--rose);margin-bottom:0.6rem;
-      display:flex;align-items:center;gap:0.5rem;
-    }
+    .ms-title { font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--rose);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem; }
     .ms-title::after { content:'';flex:1;height:1px;background:var(--blush2); }
     .modal-section p { font-size:0.92rem;line-height:1.8;color:var(--text);font-style:italic; }
 
-    /* PHOTO GRID */
     .photo-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem; }
-    .photo-slot {
-      aspect-ratio:1;border-radius:10px;background:var(--blush);
-      overflow:hidden;position:relative;
-      border:2px solid rgba(196,123,114,0.18);
-    }
-    .photo-slot img {
-      width:100%;height:100%;object-fit:cover;display:block;
-      transition:transform 0.4s;cursor:zoom-in;
-    }
+    .photo-slot { aspect-ratio:1;border-radius:10px;background:var(--blush);overflow:hidden;position:relative;border:2px solid rgba(196,123,114,0.18); }
+    .photo-slot img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s;cursor:zoom-in; }
     .photo-slot img:hover { transform:scale(1.06); }
-    .photo-slot.placeholder {
-      display:flex;flex-direction:column;align-items:center;
-      justify-content:center;gap:0.3rem;padding:0.5rem;
-    }
+    .photo-slot.placeholder { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.3rem;padding:0.5rem; }
     .slot-placeholder { font-size:1.5rem; }
     .slot-name { font-size:0.68rem;color:var(--text-light);text-align:center;line-height:1.3; }
 
-    /* LIGHTBOX */
-    #lightbox {
-      display:none;position:fixed;inset:0;z-index:900;
-      background:rgba(20,10,10,0.88);align-items:center;justify-content:center;
-      cursor:zoom-out;
-    }
+    #lightbox { display:none;position:fixed;inset:0;z-index:900;background:rgba(20,10,10,0.88);align-items:center;justify-content:center;cursor:zoom-out; }
     #lightbox.open { display:flex; }
     #lightbox img { max-width:90vw;max-height:88vh;border-radius:10px;box-shadow:0 8px 60px rgba(0,0,0,0.5); }
-    #lightbox-close {
-      position:fixed;top:1.2rem;right:1.5rem;
-      background:rgba(255,255,255,0.15);border:none;
-      color:#fff;font-size:1.4rem;cursor:pointer;
-      width:40px;height:40px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      transition:background 0.2s;
-    }
+    #lightbox-close { position:fixed;top:1.2rem;right:1.5rem;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:1.4rem;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s; }
     #lightbox-close:hover { background:rgba(255,255,255,0.28); }
 
-    /* FOOTER */
-    footer {
-      text-align:center;padding:3rem 1rem;
-      background:linear-gradient(0deg,var(--blush) 0%,transparent 100%);
-    }
-    .ft-quote {
-      font-family:'Cormorant Garamond',serif;font-style:italic;
-      font-size:1.2rem;color:var(--text-light);
-      max-width:420px;margin:0 auto 0.8rem;line-height:1.6;
-    }
+    footer { text-align:center;padding:3rem 1rem;background:linear-gradient(0deg,var(--blush) 0%,transparent 100%); }
+    .ft-quote { font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--text-light);max-width:420px;margin:0 auto 0.8rem;line-height:1.6; }
     .ft-names { font-size:0.8rem;color:var(--rose);letter-spacing:0.15em;text-transform:uppercase; }
 
     @media(max-width:520px) {
@@ -324,20 +144,6 @@
 
 <div class="hearts-bg" id="hearts-bg"></div>
 
-<!-- LOCK -->
-<div id="lock-screen">
-  <div class="lock-petal">🌸</div>
-  <p class="header-tag">sadece ikimiz için</p>
-  <h1>Bizim <em>Hikayemiz</em></h1>
-  <p class="lock-sub">şifreni gir</p>
-  <div class="lock-input-wrap">
-    <input type="password" id="pw-input" placeholder="••••••" autocomplete="off" />
-    <span id="lock-error">Yanlış şifre, tekrar dene 🌸</span>
-    <button id="lock-btn">Gir ♡</button>
-  </div>
-</div>
-
-<!-- MAIN -->
 <div id="main-content">
   <header>
     <p class="header-tag">sadece ikimiz için ♡</p>
@@ -385,21 +191,243 @@
   </footer>
 </div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay">
-  <div class="modal" id="modal">
+  <div class="modal">
     <button class="modal-close" id="modal-close-btn">✕</button>
     <div id="modal-body"></div>
   </div>
 </div>
 
-<!-- LIGHTBOX -->
 <div id="lightbox">
   <button id="lightbox-close">✕</button>
   <img id="lightbox-img" src="" alt="" />
 </div>
 
-<script src="bizim-hikayemiz.js"></script>
+<script>
+const events = [
+  {
+    emoji: "💫",
+    title: "Konuşmaya Başladığımız İlk Tarih",
+    date: "2024-06-26",
+    memory: "O gün her şeyin başlangıcıydı...",
+    photos: []
+  },
+  {
+    emoji: "💕",
+    title: "Sevgili Olduk",
+    date: "2024-08-24",
+    memory: "Hayatımızın en güzel 'Evet'lerinden biri.",
+    photos: [
+      { name: "İlk fotoğrafımız", src: "foto1.jpg" }
+    ]
+  },
+  {
+    emoji: "💍",
+    title: "Nişanlandık",
+    date: "2025-06-25",
+    memory: "Geleceğe bir adım daha...",
+    photos: [
+      { name: "Yüzük anı 💍", src: "foto2.jpg" },
+      { name: "Aile fotoğrafı", src: "foto3.jpg" }
+    ]
+  },
+  {
+    emoji: "💍👰‍♀️🤵‍♂️",
+    title: "Düğün Günümüz",
+    date: "2025-09-09",
+    memory: "Sonsuza kadar beraber.",
+    photos: [
+      { name: "Düğün", src: "foto4.jpg" }
+    ]
+  }
+];
+
+const countdownDays = [
+  { emoji:"💌", title:"Sevgililer Günü",            month:2, day:14 },
+  { emoji:"🩺", title:"Tıp Bayramı",                month:3, day:14 },
+  { emoji:"🎂", title:"Derya'nın Doğum Günü",       month:5, day:24 },
+  { emoji:"💍", title:"Nişan Yıl Dönümü",           month:6, day:25 },
+  { emoji:"💫", title:"Konuşmaya Başladığımız Gün", month:6, day:26 },
+  { emoji:"💕", title:"Birliktelik Yıl Dönümü",     month:8, day:24 },
+  { emoji:"👰‍♀️", title:"Evlilik Yıl Dönümü",       month:9, day:9  },
+];
+
+const favorites = [
+  { icon:"🍝", label:"En Sevdiği Yemek",   title:"Kırmızı Biber Dolması, Humus, Adana Kebap" },
+  { icon:"🎨", label:"En Sevdiği Renkler", title:"Beyaz & Mavi" },
+  { icon:"🎵", label:"En Sevdiği Müzik",   title:"Pop" },
+  { icon:"☕", label:"İçecek Tercihi",     title:"Türk Kahvesi" },
+  { icon:"🌸", label:"En Sevdiği Çiçek",  title:"Yasemin & Begonvil" },
+  { icon:"🔢", label:"Favori Sayısı",      title:"5" },
+  { icon:"👠", label:"Ayakkabı Numarası",  title:"36.5" },
+];
+
+/* ══ HELPERS ══ */
+function todayMidnight() {
+  const d = new Date(); d.setHours(0,0,0,0); return d;
+}
+function daysSince(dateStr) {
+  return Math.floor((todayMidnight() - new Date(dateStr + 'T00:00:00')) / 86400000);
+}
+function formatDate(dateStr) {
+  return new Date(dateStr + 'T00:00:00').toLocaleDateString('tr-TR', { day:'numeric', month:'long', year:'numeric' });
+}
+function toYM(days) {
+  const y = Math.floor(days/365), m = Math.floor((days%365)/30);
+  if (y>0 && m>0) return y+' yıl '+m+' ay';
+  if (y>0) return y+' yıl';
+  if (m>0) return m+' ay';
+  return days+' gün';
+}
+function getCountdownInfo(month, day) {
+  const now = todayMidnight();
+  let target = new Date(now.getFullYear(), month-1, day);
+  const diff = Math.round((target - now) / 86400000);
+  if (diff === 0) return { diff:0, targetDate:target, state:'today' };
+  if (diff > 0)   return { diff, targetDate:target, state:'future' };
+  target = new Date(now.getFullYear()+1, month-1, day);
+  return { diff: Math.round((target-now)/86400000), targetDate:target, state:'future' };
+}
+function fmtTarget(date) {
+  return date.toLocaleDateString('tr-TR', { day:'numeric', month:'long', year:'numeric' });
+}
+
+/* ══ BUILDERS ══ */
+function buildCards() {
+  const grid = document.getElementById('cards-grid');
+  events.forEach(function(ev, i) {
+    const days = daysSince(ev.date);
+    const card = document.createElement('div');
+    card.className = 'event-card';
+    card.innerHTML =
+      '<div class="ev-emoji">'+ev.emoji+'</div>'+
+      '<h3>'+ev.title+'</h3>'+
+      '<p class="ev-date">'+formatDate(ev.date)+'</p>'+
+      '<div class="day-num">'+days+'</div>'+
+      '<p class="day-lbl">gündür birlikte ♡</p>';
+    card.addEventListener('click', (function(idx){ return function(){ openModal(idx); }; })(i));
+    grid.appendChild(card);
+  });
+}
+
+function buildCountdown() {
+  const grid = document.getElementById('countdown-grid');
+  const items = countdownDays.map(function(cd) {
+    return Object.assign({}, cd, getCountdownInfo(cd.month, cd.day));
+  }).sort(function(a,b) {
+    if (a.state==='today') return -1;
+    if (b.state==='today') return 1;
+    return a.diff - b.diff;
+  });
+  items.forEach(function(item) {
+    const card = document.createElement('div');
+    card.className = 'cd-card';
+    const isToday = item.state === 'today';
+    card.innerHTML =
+      '<div class="cd-emoji">'+item.emoji+'</div>'+
+      '<h3>'+item.title+'</h3>'+
+      '<p class="cd-fixed-date">'+fmtTarget(item.targetDate)+'</p>'+
+      '<div class="cd-days-wrap">'+
+        '<div class="cd-num'+(isToday?' today':'')+'">'+( isToday ? '🎉' : item.diff )+'</div>'+
+        (!isToday ? '<div class="cd-unit">gün</div>' : '')+
+      '</div>'+
+      '<div class="cd-status'+(isToday?' today':'')+'">'+
+        (isToday ? 'Bugün! Kutlu olsun ♡' : item.diff+' gün kaldı')+
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+function buildFavorites() {
+  const grid = document.getElementById('fav-grid');
+  favorites.forEach(function(fav) {
+    const card = document.createElement('div');
+    card.className = 'fav-card';
+    card.innerHTML =
+      '<span class="fav-icon">'+fav.icon+'</span>'+
+      '<span class="fav-label">'+fav.label+'</span>'+
+      '<h4>'+fav.title+'</h4>';
+    grid.appendChild(card);
+  });
+}
+
+/* ══ MODAL ══ */
+function openModal(index) {
+  const ev = events[index];
+  const days = daysSince(ev.date);
+  let photosHTML = '';
+  if (ev.photos.length === 0) {
+    photosHTML = '<p style="font-size:0.82rem;color:var(--text-light);font-style:italic;">Henüz fotoğraf eklenmedi.</p>';
+  } else {
+    ev.photos.forEach(function(p) {
+      const isReal = p.src && !p.src.match(/^foto\d+\.jpg$/);
+      if (isReal) {
+        photosHTML += '<div class="photo-slot"><img src="'+p.src+'" alt="'+p.name+'" loading="lazy" onclick="openLightbox(\''+p.src+'\',\''+p.name+'\')"/></div>';
+      } else {
+        photosHTML += '<div class="photo-slot placeholder"><span class="slot-placeholder">🖼️</span><span class="slot-name">'+p.name+'</span></div>';
+      }
+    });
+  }
+  document.getElementById('modal-body').innerHTML =
+    '<div class="modal-top">'+
+      '<div class="m-emoji">'+ev.emoji+'</div>'+
+      '<h2>'+ev.title+'</h2>'+
+      '<p class="m-date">'+formatDate(ev.date)+'</p>'+
+    '</div>'+
+    '<div class="counter-block">'+
+      '<div class="counter-item"><div class="c-num">'+days+'</div><div class="c-lbl">Gün</div></div>'+
+      '<div class="counter-divider"></div>'+
+      '<div class="counter-item"><div class="c-num">'+toYM(days)+'</div><div class="c-lbl">Birlikte</div></div>'+
+    '</div>'+
+    '<div class="modal-section"><div class="ms-title">🤍 Anı</div><p>'+ev.memory+'</p></div>'+
+    '<div class="modal-section"><div class="ms-title">📷 Fotoğraflar</div><div class="photo-grid">'+photosHTML+'</div></div>';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); }
+
+/* ══ LIGHTBOX ══ */
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+
+/* ══ HEARTS ══ */
+function spawnHearts() {
+  const container = document.getElementById('hearts-bg');
+  const syms = ['♡','♡','♡','·','✦'];
+  for (var i=0; i<12; i++) {
+    const h = document.createElement('div');
+    h.className = 'heart-float';
+    h.textContent = syms[Math.floor(Math.random()*syms.length)];
+    h.style.left = (Math.random()*96)+'vw';
+    h.style.fontSize = (0.6+Math.random()*0.9)+'rem';
+    h.style.animationDuration = (14+Math.random()*18)+'s';
+    h.style.animationDelay = (Math.random()*14)+'s';
+    container.appendChild(h);
+  }
+}
+
+/* ══ BAŞLAT ══ */
+document.addEventListener('DOMContentLoaded', function() {
+  buildCards();
+  buildCountdown();
+  buildFavorites();
+  spawnHearts();
+
+  document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+  document.getElementById('modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this || e.target.id === 'lightbox-close') closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeModal(); closeLightbox(); }
+  });
+});
+</script>
 </body>
 </html>
 
